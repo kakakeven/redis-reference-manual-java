@@ -1,6 +1,7 @@
 package com.lintrip.springboot.redis.controller;
 
 import com.lintrip.springboot.redis.domain.Book;
+import com.lintrip.springboot.redis.dto.BaseResponseObject;
 import com.lintrip.springboot.redis.repository.BookRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,14 +18,16 @@ public class BookController {
     private BookRepository bookRepository;
 
     @RequestMapping("/book/get.action")
-    public Book getBook(Long id) {
+    public BaseResponseObject<Book> getBook(Long id) {
         logger.info("getBook-book id is {}!",id);
-        return bookRepository.getBook(id);
+        Book book = bookRepository.getBook(id);
+        return BaseResponseObject.success(book);
     }
 
     @RequestMapping("/book/save.action")
-    public Long saveBook(Book book) {
+    public BaseResponseObject<Long> saveBook(Book book) {
         logger.info("saveBook-request Param：{}!",book);
-        return bookRepository.save(book);
+        Long id = bookRepository.save(book);
+        return BaseResponseObject.success(id);
     }
 }

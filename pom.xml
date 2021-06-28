@@ -9,9 +9,9 @@
         <relativePath/>
     </parent>
     <groupId>com.lintrip.springboot</groupId>
-    <artifactId>redis-demo</artifactId>
+    <artifactId>redis-reference-manual-java</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>redis</name>
+    <name>redis-reference-manual-java</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
